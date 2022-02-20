@@ -27,7 +27,8 @@ export class TreeTableRow extends Component {
         onSelectionChange: null,
         onPropagateUp: null,
         onContextMenuSelectionChange: null,
-        onContextMenu: null
+        onContextMenu: null,
+        selectOnFocus: null,
     }
 
     static propTypes = {
@@ -41,6 +42,7 @@ export class TreeTableRow extends Component {
         metaKeySelection: PropTypes.bool,
         propagateSelectionUp: PropTypes.bool,
         propagateSelectionDown: PropTypes.bool,
+        selectOnFocus: PropTypes.bool,
         rowClassName: PropTypes.func,
         onExpand: PropTypes.func,
         onCollapse: PropTypes.func,
@@ -49,6 +51,7 @@ export class TreeTableRow extends Component {
         onSelect: PropTypes.func,
         onUnselect: PropTypes.func,
         onSelectionChange: PropTypes.func,
+        onFocus: PropTypes.func,
         onPropagateUp: PropTypes.func,
         onContextMenuSelectionChange: PropTypes.func,
         onContextMenu: PropTypes.func,
@@ -277,6 +280,9 @@ export class TreeTableRow extends Component {
                     const nextRow = rowElement.nextElementSibling;
                     if (nextRow) {
                         nextRow.focus();
+                        if (this.props.selectOnFocus) {
+                            this.onClick(event)
+                        }
                     }
 
                     event.preventDefault();
@@ -287,6 +293,9 @@ export class TreeTableRow extends Component {
                     const previousRow = rowElement.previousElementSibling;
                     if (previousRow) {
                         previousRow.focus();
+                        if (this.props.selectOnFocus) {
+                            this.onClick(event)
+                        }
                     }
 
                     event.preventDefault();

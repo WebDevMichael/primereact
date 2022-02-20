@@ -156,6 +156,7 @@ export interface TreeTableProps {
     rowHover?: boolean;
     showGridlines?: boolean;
     stripedRows?: boolean;
+    selectOnFocus?: boolean;
     rowClassName?(data: TreeNode): object;
     onFilter?(filters: TreeTableFilterMeta[]): void;
     onExpand?(e: TreeTableEventParams): void;

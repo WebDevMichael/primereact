@@ -23,6 +23,7 @@ export class TreeTableBody extends Component {
         rowClassName: null,
         emptyMessage: null,
         loading: false,
+        selectOnFocus: true,
         onExpand: null,
         onCollapse: null,
         onToggle: null,
@@ -31,7 +32,7 @@ export class TreeTableBody extends Component {
         onUnselect: null,
         onSelectionChange: null,
         onContextMenuSelectionChange: null,
-        onContextMenu: null
+        onContextMenu: null,
     }
 
     static propTypes = {
@@ -48,6 +49,7 @@ export class TreeTableBody extends Component {
         propagateSelectionUp: PropTypes.bool,
         propagateSelectionDown: PropTypes.bool,
         lazy: PropTypes.bool,
+        selectOnFocus: PropTypes.bool,
         rowClassName: PropTypes.func,
         emptyMessage: PropTypes.string,
         loading: PropTypes.bool,
@@ -77,7 +79,9 @@ export class TreeTableBody extends Component {
                             metaKeySelection={this.props.metaKeySelection} onRowClick={this.onRowClick} onSelect={this.props.onSelect} onUnselect={this.props.onUnselect}
                             propagateSelectionUp={this.props.propagateSelectionUp} propagateSelectionDown={this.props.propagateSelectionDown}
                             rowClassName={this.props.rowClassName}
-                            contextMenuSelectionKey={this.props.contextMenuSelectionKey} onContextMenuSelectionChange={this.props.onContextMenuSelectionChange} onContextMenu={this.props.onContextMenu} />
+                            contextMenuSelectionKey={this.props.contextMenuSelectionKey} onContextMenuSelectionChange={this.props.onContextMenuSelectionChange} onContextMenu={this.props.onContextMenu}
+                selectOnFocus={this.props.selectOnFocus}
+            />
         );
     }
 
