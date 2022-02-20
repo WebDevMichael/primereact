@@ -12,6 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@babel/core": "^7.17.5",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/plugin-transform-runtime": "^7.16.8",
     "@babel/preset-env": "^7.16.8",
