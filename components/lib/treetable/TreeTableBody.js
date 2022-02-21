@@ -33,6 +33,7 @@ export class TreeTableBody extends Component {
         onSelectionChange: null,
         onContextMenuSelectionChange: null,
         onContextMenu: null,
+        onKeyDown: null,
     }
 
     static propTypes = {
@@ -61,7 +62,8 @@ export class TreeTableBody extends Component {
         onUnselect: PropTypes.func,
         onSelectionChange: PropTypes.func,
         onContextMenuSelectionChange: PropTypes.func,
-        onContextMenu: PropTypes.func
+        onContextMenu: PropTypes.func,
+        onKeyDown: PropTypes.func,
     }
 
     constructor(props) {
@@ -80,7 +82,7 @@ export class TreeTableBody extends Component {
                             propagateSelectionUp={this.props.propagateSelectionUp} propagateSelectionDown={this.props.propagateSelectionDown}
                             rowClassName={this.props.rowClassName}
                             contextMenuSelectionKey={this.props.contextMenuSelectionKey} onContextMenuSelectionChange={this.props.onContextMenuSelectionChange} onContextMenu={this.props.onContextMenu}
-                selectOnFocus={this.props.selectOnFocus}
+                        selectOnFocus={this.props.selectOnFocus} onKeyDown={this.props.onKeyDown}
             />
         );
     }

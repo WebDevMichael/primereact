@@ -29,6 +29,7 @@ export class TreeTableRow extends Component {
         onContextMenuSelectionChange: null,
         onContextMenu: null,
         selectOnFocus: true,
+        onKeyDown: null,
     }
 
     static propTypes = {
@@ -55,6 +56,7 @@ export class TreeTableRow extends Component {
         onPropagateUp: PropTypes.func,
         onContextMenuSelectionChange: PropTypes.func,
         onContextMenu: PropTypes.func,
+        onKeyDown: PropTypes.func,
     }
 
     constructor(props) {
@@ -271,6 +273,9 @@ export class TreeTableRow extends Component {
     }
 
     onKeyDown(event) {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(event, this.props.node);
+        }
         if (event.target === this.container) {
             const rowElement = event.currentTarget;
 
@@ -414,7 +419,9 @@ export class TreeTableRow extends Component {
                         metaKeySelection={this.props.metaKeySelection} onRowClick={this.props.onRowClick} onSelect={this.props.onSelect} onUnselect={this.props.onUnselect}
                         propagateSelectionUp={this.props.propagateSelectionUp} propagateSelectionDown={this.props.propagateSelectionDown} onPropagateUp={this.propagateUp}
                         rowClassName={this.props.rowClassName}
-                        contextMenuSelectionKey={this.props.contextMenuSelectionKey} onContextMenuSelectionChange={this.props.onContextMenuSelectionChange} onContextMenu={this.props.onContextMenu} />
+                        contextMenuSelectionKey={this.props.contextMenuSelectionKey} onContextMenuSelectionChange={this.props.onContextMenuSelectionChange} onContextMenu={this.props.onContextMenu}
+                        onKeyDown={this.onKeyDown}
+                    />
                 );
             });
         }

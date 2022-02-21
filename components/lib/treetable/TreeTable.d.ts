@@ -172,6 +172,7 @@ export interface TreeTableProps {
     onColumnResizeEnd?(e: TreeTableColumnResizeEndParams): void;
     onColReorder?(e: TreeTableColReorderParams): void;
     onContextMenu?(e: TreeTableEventParams): void;
+    onKeyDown?(e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>, data: TreeNode): void;
 }
 
 export declare class TreeTable extends React.Component<TreeTableProps, any> {

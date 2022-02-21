@@ -85,7 +85,8 @@ export class TreeTable extends Component {
         onContextMenuSelectionChange: null,
         onColumnResizeEnd: null,
         onColReorder: null,
-        onContextMenu: null
+        onContextMenu: null,
+        onKeyDown: null,
     }
 
     static propTypes = {
@@ -163,7 +164,8 @@ export class TreeTable extends Component {
         onContextMenuSelectionChange: PropTypes.func,
         onColumnResizeEnd: PropTypes.func,
         onColReorder: PropTypes.func,
-        onContextMenu: PropTypes.func
+        onContextMenu: PropTypes.func,
+        onKeyDown: PropTypes.func,
     }
 
     constructor(props) {
@@ -980,7 +982,9 @@ export class TreeTable extends Component {
                 metaKeySelection={this.props.metaKeySelection} onRowClick={this.props.onRowClick} onSelect={this.props.onSelect} onUnselect={this.props.onUnselect}
                 propagateSelectionUp={this.props.propagateSelectionUp} propagateSelectionDown={this.props.propagateSelectionDown}
                 lazy={this.props.lazy} rowClassName={this.props.rowClassName} emptyMessage={this.props.emptyMessage} loading={this.props.loading}
-                contextMenuSelectionKey={this.props.contextMenuSelectionKey} onContextMenuSelectionChange={this.props.onContextMenuSelectionChange} onContextMenu={this.props.onContextMenu} />
+                contextMenuSelectionKey={this.props.contextMenuSelectionKey} onContextMenuSelectionChange={this.props.onContextMenuSelectionChange} onContextMenu={this.props.onContextMenu}
+                onKeyDown={this.props.onKeyDown}
+            />
         );
     }
 
