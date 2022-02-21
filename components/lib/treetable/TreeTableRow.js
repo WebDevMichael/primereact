@@ -286,7 +286,7 @@ export class TreeTableRow extends Component {
                     if (nextRow) {
                         nextRow.focus();
                         if (this.props.selectOnFocus) {
-                            this.onClick(event)
+                            rowElement.click();
                         }
                     }
 
@@ -299,7 +299,7 @@ export class TreeTableRow extends Component {
                     if (previousRow) {
                         previousRow.focus();
                         if (this.props.selectOnFocus) {
-                            this.onClick(event)
+                            rowElement.click();
                         }
                     }
 
@@ -334,6 +334,10 @@ export class TreeTableRow extends Component {
                     //no op
                 break;
             }
+        }
+
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(event, this.props.node);
         }
     }
 
