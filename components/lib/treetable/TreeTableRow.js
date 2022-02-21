@@ -28,7 +28,7 @@ export class TreeTableRow extends Component {
         onPropagateUp: null,
         onContextMenuSelectionChange: null,
         onContextMenu: null,
-        selectOnFocus: null,
+        selectOnFocus: true,
     }
 
     static propTypes = {
