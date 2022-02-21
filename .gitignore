@@ -19,7 +19,7 @@ package-lock.json
 /out/
 
 # production
-/dist
+#/dist
 /build
 
 # misc
