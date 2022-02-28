@@ -436,7 +436,7 @@ export class TreeTableRow extends Component {
                         contextMenuSelectionKey={this.props.contextMenuSelectionKey}
                         onContextMenuSelectionChange={this.props.onContextMenuSelectionChange}
                         onContextMenu={this.props.onContextMenu}
-                        onKeyDown={(evt) => this.onKeyDown(evt, childNode)}
+                        onKeyDown={this.props.onKeyDown}
                     />
                 );
             });
