@@ -31,27 +31,18 @@ const Template = (args) => {
   );
 };
 
+/**
+ * BSON
+ */
 export const BSON = Template.bind({});
-
 BSON.args = {
   mongoDbData: EJSON.serialize(dbDataRaw),
-  onKeyDown: (event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>, node: TreeNode) => {
-    if (event.metaKey && event.key === "c") {
-      console.log("====== ", node.data);
-      navigator.clipboard.writeText(JSON.stringify(node.data.realData, null, 2));
-      console.log("Copied value to clipboard:", node.data.realData);
-    }
-  },
 };
-export const JSONData = Template.bind({});
 
+/**
+ * JSONData
+ */
+export const JSONData = Template.bind({});
 JSONData.args = {
   value: nodes,
-  mongoDbData: undefined,
-  onKeyDown: (event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>, node: TreeNode) => {
-    if (event.metaKey && event.key === "c") {
-      navigator.clipboard.writeText(JSON.stringify(node.data.realData, null, 2));
-      console.log("Copied value to clipboard:", node.data.value);
-    }
-  },
 };

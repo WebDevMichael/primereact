@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { DomHandler, classNames } from '../utils/Utils';
 import { TreeTableBodyCell } from './TreeTableBodyCell';
 import { Ripple } from '../ripple/Ripple';
+import { isArray, isObject } from "lodash";
 
 export class TreeTableRow extends Component {
 
@@ -273,9 +274,21 @@ export class TreeTableRow extends Component {
         if (this.props.onKeyDown) {
             this.props.onKeyDown(event, nodeData);
         }
+        if (event.metaKey && event.key === "c") {
+          function getValueToCopy(realData) {
+            if (isArray(realData) || isObject(realData)) {
+              return JSON.stringify(realData, null, 2);
+            }
+            return realData;
+          }
+
+          const realData = nodeData.data.realData;
+          const valueToCopy = getValueToCopy(realData);
+          navigator.clipboard.writeText(valueToCopy);
+        }
+
         if (event.target === this.container) {
             const rowElement = event.currentTarget;
-
             switch (event.which) {
                 //down arrow
                 case 40:

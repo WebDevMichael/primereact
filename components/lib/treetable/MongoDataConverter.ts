@@ -76,7 +76,7 @@ function getChildren(
           key: `${index}`,
           value: getMongoRowValue(mongoFieldValue, valueType),
           type: valueType,
-          realData: mongoFieldValue,
+          realData: EJSON.deserialize(mongoFieldValue),
         },
       };
       if (valueType === MONGO_VALUE_TYPE.OBJECT && isObject(mongoFieldValue)) {
@@ -100,7 +100,7 @@ function getChildren(
           key,
           value: getMongoRowValue(mongoFieldValue, valueType),
           type: valueType,
-          realData: mongoFieldValue,
+          realData: EJSON.deserialize(mongoFieldValue),
         },
       };
       if (valueType === MONGO_VALUE_TYPE.OBJECT && isObject(mongoFieldValue)) {
