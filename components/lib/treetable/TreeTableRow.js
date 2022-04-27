@@ -314,8 +314,12 @@ export class TreeTableRow extends Component {
 
                 //left arrow
                 case 37:
-                    if (this.isExpanded()) {
+                    const expanded = this.isExpanded();
+                    if (expanded) {
                         this.collapse(event);
+                    } else if(this.props.parent.isExpanded()) {
+                        this.props.parent.onClick(event)
+                        this.props.parentRef.focus()
                     }
 
                     event.preventDefault();
@@ -437,6 +441,8 @@ export class TreeTableRow extends Component {
                         onContextMenuSelectionChange={this.props.onContextMenuSelectionChange}
                         onContextMenu={this.props.onContextMenu}
                         onKeyDown={this.props.onKeyDown}
+                        parent={this}
+                        parentRef={this.container}
                     />
                 );
             });
