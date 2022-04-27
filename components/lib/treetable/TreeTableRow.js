@@ -5,6 +5,14 @@ import { TreeTableBodyCell } from './TreeTableBodyCell';
 import { Ripple } from '../ripple/Ripple';
 import { isArray, isObject } from "lodash";
 
+function getValueToCopy(realData) {
+    if (isArray(realData) || isObject(realData)) {
+        return JSON.stringify(realData, null, 2);
+    }
+    return realData;
+}
+
+
 export class TreeTableRow extends Component {
 
     static defaultProps = {
@@ -275,13 +283,6 @@ export class TreeTableRow extends Component {
             this.props.onKeyDown(event, nodeData);
         }
         if (event.metaKey && event.key === "c") {
-          function getValueToCopy(realData) {
-            if (isArray(realData) || isObject(realData)) {
-              return JSON.stringify(realData, null, 2);
-            }
-            return realData;
-          }
-
           const realData = nodeData.data.realData;
           const valueToCopy = getValueToCopy(realData);
           navigator.clipboard.writeText(valueToCopy);
