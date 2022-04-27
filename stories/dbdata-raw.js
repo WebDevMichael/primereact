@@ -2,6 +2,7 @@ import { ObjectId } from "bson";
 
 const bson = [{
     "_id": new ObjectId("61f2e0fe799c513668bcfeb3"),
+    "now": new Date(),
     "name": "Falcon",
     "created": new Date("2022-01-27T19:15:08.199+0100"),
     "launched": true,
