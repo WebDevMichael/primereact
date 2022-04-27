@@ -98,6 +98,7 @@ interface TreeTableColReorderParams {
 export interface TreeTableProps {
     id?: string;
     value?: TreeNode[];
+    mongoDbData?: Record<string, unknown>[];
     header?: React.ReactNode;
     footer?: React.ReactNode;
     style?: object;

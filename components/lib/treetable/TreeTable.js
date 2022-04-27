@@ -7,12 +7,15 @@ import { TreeTableHeader } from './TreeTableHeader';
 import { TreeTableBody } from './TreeTableBody';
 import { TreeTableFooter } from './TreeTableFooter';
 import { TreeTableScrollableView } from './TreeTableScrollableView';
+import { EJSON } from "bson";
+import { mongoDataConverter } from './MongoDataConverter';
 
 export class TreeTable extends Component {
 
     static defaultProps = {
         id: null,
         value: null,
+        mongoDbData: null,
         header: null,
         footer: null,
         style: null,
@@ -92,6 +95,7 @@ export class TreeTable extends Component {
     static propTypes = {
         id: PropTypes.string,
         value: PropTypes.any,
+        mongoDbData: PropTypes.any,
         header: PropTypes.any,
         footer: PropTypes.any,
         style: PropTypes.object,
@@ -936,6 +940,10 @@ export class TreeTable extends Component {
 
     processValue() {
         let data = this.props.value;
+        if (this.props.value && this.props.mongoDbData) throw new Error("Both props 'props.value' and 'props.mongoDbData' cannot both be passed");
+        if (this.props.mongoDbData) {
+            data = mongoDataConverter(EJSON.deserialize(this.props.mongoDbData));
+        }
 
         if (!this.props.lazy) {
             if (data && data.length) {
