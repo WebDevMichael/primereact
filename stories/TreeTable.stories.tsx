@@ -38,8 +38,8 @@ BSON.args = {
         node: TreeNode
     ) => {
         if (event.metaKey && event.key==="c") {
-            navigator.clipboard.writeText(node.data.value);
-            console.log('Copied value to clipboard:', node.data.value);
+            navigator.clipboard.writeText(JSON.stringify(node.data.realData, null, 2));
+            console.log('Copied value to clipboard:', node.data.realData);
         }
     }
 }
@@ -53,7 +53,7 @@ JSONData.args = {
         node: TreeNode
     ) => {
         if (event.metaKey && event.key==="c") {
-            navigator.clipboard.writeText(node.data.value);
+            navigator.clipboard.writeText(JSON.stringify(node.data.realData, null, 2));
             console.log('Copied value to clipboard:', node.data.value);
         }
     }

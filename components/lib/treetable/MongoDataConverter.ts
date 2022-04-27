@@ -93,6 +93,7 @@ function getChildren(
             key: `${index}`,
             value: getMongoRowValue(mongoFieldValue, valueType),
             type: valueType,
+            realData: mongoFieldValue
           },
         };
         if (
@@ -125,6 +126,7 @@ function getChildren(
             key,
             value: getMongoRowValue(mongoFieldValue, valueType),
             type: valueType,
+            realData: mongoFieldValue
           },
         };
         if (
