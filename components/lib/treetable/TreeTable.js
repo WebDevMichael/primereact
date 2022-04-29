@@ -9,6 +9,9 @@ import { TreeTableFooter } from './TreeTableFooter';
 import { TreeTableScrollableView } from './TreeTableScrollableView';
 import { EJSON } from "bson";
 import { mongoDataConverter } from './MongoDataConverter';
+import "../contextmenu/ContextMenu.css";
+import { ContextMenu } from "../contextmenu/ContextMenu";
+import { getValueToCopy } from "./TreeTableRow";
 
 export class TreeTable extends Component {
 
@@ -174,7 +177,10 @@ export class TreeTable extends Component {
 
     constructor(props) {
         super(props);
-        let state = {};
+        let state = {
+            expandedKeys: {},
+            selectedNodeKey: null
+        };
 
         if (!this.props.onToggle) {
             this.state = {
@@ -210,6 +216,7 @@ export class TreeTable extends Component {
         this.onColumnDragOver = this.onColumnDragOver.bind(this);
         this.onColumnDragLeave = this.onColumnDragLeave.bind(this);
         this.onColumnDrop = this.onColumnDrop.bind(this);
+        this.contextMenuRef = React.createRef();
     }
 
     onToggle(event) {
@@ -983,16 +990,37 @@ export class TreeTable extends Component {
 
     createTableBody(value, columns) {
         return (
-            <TreeTableBody value={value} columns={columns} expandedKeys={this.getExpandedKeys()} selectOnEdit={this.props.selectOnEdit}
-                onToggle={this.onToggle} onExpand={this.props.onExpand} onCollapse={this.props.onCollapse}
-                paginator={this.props.paginator} first={this.getFirst()} rows={this.getRows()}
-                selectionMode={this.props.selectionMode} selectionKeys={this.props.selectionKeys} onSelectionChange={this.props.onSelectionChange}
-                metaKeySelection={this.props.metaKeySelection} onRowClick={this.props.onRowClick} onSelect={this.props.onSelect} onUnselect={this.props.onUnselect}
-                propagateSelectionUp={this.props.propagateSelectionUp} propagateSelectionDown={this.props.propagateSelectionDown}
-                lazy={this.props.lazy} rowClassName={this.props.rowClassName} emptyMessage={this.props.emptyMessage} loading={this.props.loading}
-                contextMenuSelectionKey={this.props.contextMenuSelectionKey} onContextMenuSelectionChange={this.props.onContextMenuSelectionChange} onContextMenu={this.props.onContextMenu}
-                onKeyDown={this.props.onKeyDown}
-            />
+          <TreeTableBody
+            value={value}
+            columns={columns}
+            expandedKeys={this.getExpandedKeys()}
+            selectOnEdit={this.props.selectOnEdit}
+            onToggle={this.onToggle}
+            onExpand={this.props.onExpand}
+            onCollapse={this.props.onCollapse}
+            paginator={this.props.paginator}
+            first={this.getFirst()}
+            rows={this.getRows()}
+            selectionMode={this.props.selectionMode}
+            selectionKeys={this.props.selectionKeys}
+            onSelectionChange={this.props.onSelectionChange}
+            metaKeySelection={this.props.metaKeySelection}
+            onRowClick={this.props.onRowClick}
+            onSelect={this.props.onSelect}
+            onUnselect={this.props.onUnselect}
+            propagateSelectionUp={this.props.propagateSelectionUp}
+            propagateSelectionDown={this.props.propagateSelectionDown}
+            lazy={this.props.lazy}
+            rowClassName={this.props.rowClassName}
+            emptyMessage={this.props.emptyMessage}
+            loading={this.props.loading}
+            contextMenuSelectionKey={this.state.selectedNodeKey}
+            onContextMenuSelectionChange={(event) => this.setState({ selectedNodeKey: event.value })}
+            onContextMenu={(event, ...args) => {
+              this.contextMenuRef.current.show(event.originalEvent, event.node);
+            }}
+            onKeyDown={this.props.onKeyDown}
+          />
         );
     }
 
@@ -1100,17 +1128,35 @@ export class TreeTable extends Component {
         const reorderIndicatorDown = this.props.reorderableColumns && <span ref={el => this.reorderIndicatorDown = el} className="pi pi-arrow-up p-datatable-reorder-indicator-down" style={{ position: 'absolute', display: 'none' }} />;
 
         return (
-            <div id={this.props.id} className={className} style={this.props.style} ref={el => this.container = el} data-scrollselectors=".p-treetable-scrollable-body">
-                {loader}
-                {headerFacet}
-                {paginatorTop}
-                {table}
-                {paginatorBottom}
-                {footerFacet}
-                {resizeHelper}
-                {reorderIndicatorUp}
-                {reorderIndicatorDown}
-            </div>
+          <div
+            id={this.props.id}
+            className={className}
+            style={this.props.style}
+            ref={(el) => (this.container = el)}
+            data-scrollselectors=".p-treetable-scrollable-body"
+          >
+            <ContextMenu
+              model={[
+                {
+                  label: "Copy value",
+                  icon: "pi pi-copy",
+                  command: ({ data }) => {
+                      navigator.clipboard.writeText(getValueToCopy(data.data.realData));
+                  },
+                },
+              ]}
+              ref={this.contextMenuRef}
+            />
+            {loader}
+            {headerFacet}
+            {paginatorTop}
+            {table}
+            {paginatorBottom}
+            {footerFacet}
+            {resizeHelper}
+            {reorderIndicatorUp}
+            {reorderIndicatorDown}
+          </div>
         );
     }
 }

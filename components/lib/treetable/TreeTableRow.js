@@ -5,7 +5,7 @@ import { TreeTableBodyCell } from './TreeTableBodyCell';
 import { Ripple } from '../ripple/Ripple';
 import { isArray, isObject } from "lodash";
 
-function getValueToCopy(realData) {
+export function getValueToCopy(realData) {
     if (isArray(realData) || isObject(realData)) {
         return JSON.stringify(realData, null, 2);
     }
@@ -260,10 +260,12 @@ export class TreeTableRow extends Component {
         }
     }
 
-    onRightClick(event) {
+    onRightClick(event, nodeData) {
+        console.log('onRightClick');
         DomHandler.clearSelection();
 
         if (this.props.onContextMenuSelectionChange) {
+            console.log('this.props.onContextMenuSelectionChange');
             this.props.onContextMenuSelectionChange({
                 originalEvent: event,
                 value: this.props.node.key
@@ -273,7 +275,8 @@ export class TreeTableRow extends Component {
         if (this.props.onContextMenu) {
             this.props.onContextMenu({
                 originalEvent: event,
-                node: this.props.node
+                node: this.props.node,
+                nodeData,
             });
         }
     }
@@ -453,7 +456,7 @@ export class TreeTableRow extends Component {
                         rowClassName={this.props.rowClassName}
                         contextMenuSelectionKey={this.props.contextMenuSelectionKey}
                         onContextMenuSelectionChange={this.props.onContextMenuSelectionChange}
-                        onContextMenu={this.props.onContextMenu}
+                        onContextMenu={(evt) => this.onRightClick(evt, this.props.node)}
                         onKeyDown={this.props.onKeyDown}
                         parent={this}
                         parentRef={this.container}
@@ -483,7 +486,7 @@ export class TreeTableRow extends Component {
         return (
             <>
                 <tr ref={el => this.container = el} tabIndex={0} className={className} style={this.props.node.style}
-                    onClick={this.onClick} onTouchEnd={this.onTouchEnd} onContextMenu={this.onRightClick}
+                    onClick={this.onClick} onTouchEnd={this.onTouchEnd} onContextMenu={(evt) => this.onRightClick(evt, this.props.node)}
                     onKeyDown={(evt) => this.onKeyDown(evt, this.props.node)}>{cells}</tr>
                 {children}
             </>

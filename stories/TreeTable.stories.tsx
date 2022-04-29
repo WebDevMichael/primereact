@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import "../public/themes/nova/theme.css";
 import "../styles/primereact.css";
@@ -22,12 +22,15 @@ export default {
 };
 
 const Template = (args) => {
+  const cm = useRef(null);
   return (
-    <TreeTable mongoDbData={args.mongoDbData} value={args.value} onKeyDown={args.onKeyDown}>
-      <Column field="key" header="Key" expander />
-      <Column field="value" header="Value" />
-      <Column field="type" header="Type" />
-    </TreeTable>
+    <>
+      <TreeTable mongoDbData={args.mongoDbData} value={args.value} onKeyDown={args.onKeyDown}>
+        <Column field="key" header="Key" expander />
+        <Column field="value" header="Value" />
+        <Column field="type" header="Type" />
+      </TreeTable>
+    </>
   );
 };
 
