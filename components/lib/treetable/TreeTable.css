@@ -74,7 +74,7 @@
     width: .5rem;
     height: 100%;
     padding: 0px;
-    cursor:col-resize;
+    cursor: col-resize;
     border: 1px solid transparent;
 }
 
@@ -89,6 +89,7 @@
 .p-treetable-scrollable-wrapper {
     position: relative;
 }
+
 .p-treetable-scrollable-header,
 .p-treetable-scrollable-footer {
     overflow: hidden;
