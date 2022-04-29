@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import alias from '@rollup/plugin-alias';
+import pluginTypescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 
 import fs from 'fs-extra';
@@ -98,7 +99,8 @@ const PLUGINS = [
     resolve(RESOLVE_PLUGIN_OPTIONS),
     commonjs(COMMONJS_PLUGIN_OPTIONS),
     babel(BABEL_PLUGIN_OPTIONS),
-    postcss(POSTCSS_PLUGIN_OPTIONS)
+    postcss(POSTCSS_PLUGIN_OPTIONS),
+    pluginTypescript(),
 ];
 
 const PLUGINS_COMPONENT = [
