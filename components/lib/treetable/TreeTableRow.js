@@ -252,7 +252,6 @@ export class TreeTableRow extends Component {
     DomHandler.clearSelection();
 
     if (this.props.onContextMenuSelectionChange) {
-      console.log("this.props.onContextMenuSelectionChange");
       this.props.onContextMenuSelectionChange({
         originalEvent: event,
         value: this.props.node.key,
@@ -476,7 +475,9 @@ export class TreeTableRow extends Component {
             rowClassName={this.props.rowClassName}
             contextMenuSelectionKey={this.props.contextMenuSelectionKey}
             onContextMenuSelectionChange={this.props.onContextMenuSelectionChange}
-            onContextMenu={(evt) => this.onRightClick(evt, this.props.node)}
+            onContextMenu={(evt) => {
+                this.props.onContextMenu(evt)
+            }}
             onKeyDown={this.props.onKeyDown}
             parent={this}
             parentRef={this.container}

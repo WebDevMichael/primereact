@@ -77,6 +77,7 @@ function getChildren(
           value: getMongoRowValue(mongoFieldValue, valueType),
           type: valueType,
           realData: EJSON.deserialize(mongoFieldValue),
+          realKey: `${index}`,
         },
       };
       if (valueType === MONGO_VALUE_TYPE.OBJECT && isObject(mongoFieldValue)) {
@@ -101,6 +102,7 @@ function getChildren(
           value: getMongoRowValue(mongoFieldValue, valueType),
           type: valueType,
           realData: EJSON.deserialize(mongoFieldValue),
+          realKey: `${key}`,
         },
       };
       if (valueType === MONGO_VALUE_TYPE.OBJECT && isObject(mongoFieldValue)) {
@@ -128,6 +130,7 @@ export function mongoDataConverter(mongoResult: MongoResultDocument[]): TreeNode
         value: `{ ${Object.keys(mongoQueryResultDocument).length} fields }`,
         type: "Document",
         realData: EJSON.serialize(mongoQueryResultDocument),
+        realKey: mongoQueryResultDocument._id.toString(),
       },
       children: getChildren(mongoQueryResultDocument),
     });

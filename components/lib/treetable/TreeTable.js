@@ -1235,6 +1235,13 @@ export class TreeTable extends Component {
                 navigator.clipboard.writeText(getValueToCopy(data.data.realData));
               },
             },
+            {
+              label: "Copy key",
+              icon: "pi pi-copy",
+              command: ({ data }) => {
+                navigator.clipboard.writeText(getValueToCopy(data.data.realKey));
+              },
+            },
           ]}
           ref={this.contextMenuRef}
         />
