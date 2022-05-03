@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import { UnControlled as CodeMirror } from "react-codemirror2";
+import { Controlled as CodeMirror } from "react-codemirror2";
+import beautify from 'js-beautify'
 import "codemirror/addon/edit/closebrackets";
 import "codemirror/addon/edit/matchbrackets";
+import "./addon/hint-custom/hint-custom";
+
+import "codemirror/lib/codemirror.css";
+import "codemirror/addon/hint/show-hint.css";
+import "codemirror/theme/material.css";
 
 export function CodeMirrorComponent(props){
     const [codeMirrorFieldState, setCodeMirrorFieldState] = useState('{}');
@@ -16,32 +22,24 @@ export function CodeMirrorComponent(props){
         autoCloseBrackets: true,
         indentWithTabs: true,
         lineNumbers: true,
-        // lineWrapping: true,
+        lineWrapping: true,
         matchBrackets: true,
-        mode: "javascript",
+        mode: {name: "javascript", json: true},
         smartIndent: true,
         tabSize: 2,
         theme: "material",
         value: "{}",
         extraKeys: {
             "Ctrl-Space": "autocomplete",
+            "Ctrl-L": () => {
+                setCodeMirrorFieldState(beautify(codeMirrorFieldState, { indent_size: 2 }))
+            }
         },
-        hintOptions: {
-            hint: () => {
-                console.log("hintttt");
-                return { hint: {} };
-            },
-        },
-        mongodb: {
-            fields: {
-                _id: "ObjectId",
-                name: "String",
-                age: "Number",
-                number_of_pets: "Number",
-                addresses: "Array",
-                "addresses.street": "String",
-            },
-        },
+        mongodbFields: [
+            '_id', 'hasLaunched', 'hasNotLaunched', 'rocketId',
+            '$exists', '$size', 'true', 'false', '$ne', '$in',
+            'ObjectId'
+        ]
     };
 
 
@@ -52,5 +50,6 @@ export function CodeMirrorComponent(props){
             setCodeMirrorFieldState(value);
         }}
         onKeyDown={(editor, event) => onKeyDown(event)}
+
     />)
 }
