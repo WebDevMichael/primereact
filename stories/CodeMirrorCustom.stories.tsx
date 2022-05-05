@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import { CodeMirrorComponent } from "../components/lib/codemirror/CodeMirrorCustom";
 
 export default {

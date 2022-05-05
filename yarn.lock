@@ -3075,6 +3075,11 @@ accepts@~1.3.5, accepts@~1.3.8:
     mime-types "~2.1.34"
     negotiator "0.6.3"
 
+ace-builds@^1.4.14:
+  version "1.4.14"
+  resolved "https://registry.yarnpkg.com/ace-builds/-/ace-builds-1.4.14.tgz#2c41ccbccdd09e665d3489f161a20baeb3a3c852"
+  integrity sha512-NBOQlm9+7RBqRqZwimpgquaLeTJFayqb9UEPtTkpC3TkkwDnlsT/TwsCC0svjt9kEZ6G9mH5AEOHSz6Q/HrzQQ==
+
 acorn-jsx@^5.3.1:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
@@ -5238,6 +5243,11 @@ detect-port@^1.3.0:
   dependencies:
     address "^1.0.1"
     debug "^2.6.0"
+
+diff-match-patch@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/diff-match-patch/-/diff-match-patch-1.0.5.tgz#abb584d5f10cd1196dfc55aa03701592ae3f7b37"
+  integrity sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==
 
 diffie-hellman@^5.0.0:
   version "5.0.3"
@@ -8395,6 +8405,16 @@ lodash.debounce@^4.0.8:
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
+lodash.get@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+  integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
+
+lodash.isequal@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+  integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
+
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
@@ -8833,6 +8853,23 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
+
+mongodb-ace-autocompleter@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/mongodb-ace-autocompleter/-/mongodb-ace-autocompleter-0.12.0.tgz#4a2a32c5dcbdafaaf163e6c4b8e8d134f99822b9"
+  integrity sha512-s+5BHo2XFdY1XXh7jcn7kWOkwSFGCqNZsrByRYr7Np8vhDvy3v8+zjsB+2xbn7nHSjCV5k66BQjOXce4oAi6kw==
+  dependencies:
+    semver "^7.3.5"
+
+mongodb-ace-mode@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/mongodb-ace-mode/-/mongodb-ace-mode-1.7.0.tgz#b18ee9b6303c8b7a51bbb73d8e7a2aca2e1b54f4"
+  integrity sha512-NaBt5g4hvYVnixsXUG5YrWOgQLZ48S1bfJZ5BHmKIrSn9mSTC+rmqPkdy14Nq4F1v3r0cWDn0OiHacrELG2Tbg==
+
+mongodb-ace-theme@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/mongodb-ace-theme/-/mongodb-ace-theme-1.7.0.tgz#6e3f9a8b75e77328022d0ef5319bb69e2a0f02ae"
+  integrity sha512-s3aUSywZK0qdMu9wSjmdhU/aagisN28/9twTtvNEUsT/FX9poeacKs6R2sZSWZsTLB043+t1DL9toD8PeasS0Q==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -10490,6 +10527,17 @@ raw-loader@^4.0.2:
   dependencies:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
+
+react-ace@^10.1.0:
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/react-ace/-/react-ace-10.1.0.tgz#d348eac2b16475231779070b6cd16768deed565f"
+  integrity sha512-VkvUjZNhdYTuKOKQpMIZi7uzZZVgzCjM7cLYu6F64V0mejY8a2XTyPUIMszC6A4trbeMIHbK5fYFcT/wkP/8VA==
+  dependencies:
+    ace-builds "^1.4.14"
+    diff-match-patch "^1.0.5"
+    lodash.get "^4.4.2"
+    lodash.isequal "^4.5.0"
+    prop-types "^15.7.2"
 
 react-codemirror2@^7.2.1:
   version "7.2.1"
