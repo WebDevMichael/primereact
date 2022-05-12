@@ -30,7 +30,7 @@ const queryAutoCompleter = new QueryAutoCompleter("3.6.0", textCompleter, [
 ]);
 tools.setCompleters([queryAutoCompleter]);
 
-export function AceEditorComponent(props) {
+export function AceEditorComponent() {
   return (
     <AceEditor
       mode={"mongodb"}

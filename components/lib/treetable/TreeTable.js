@@ -9,9 +9,12 @@ import { TreeTableFooter } from "./TreeTableFooter";
 import { TreeTableScrollableView } from "./TreeTableScrollableView";
 import { EJSON } from "bson";
 import { mongoDataConverter } from "./MongoDataConverter";
-import "../contextmenu/ContextMenu.css";
 import { ContextMenu } from "../contextmenu/ContextMenu";
 import { getValueToCopy } from "./TreeTableRow";
+
+import "../../../out/themes/lara-light-indigo/theme.css";
+import "../contextmenu/ContextMenu.css";
+import "./TreeTable.css";
 
 export class TreeTable extends Component {
   static defaultProps = {
