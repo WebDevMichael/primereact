@@ -49,3 +49,43 @@ export const JSONData = Template.bind({});
 JSONData.args = {
   value: nodes,
 };
+
+/**
+ * Menu list
+ */
+const menuList: TreeNode[] = [
+  {
+    key: "key1",
+    data: {
+      title: "michael",
+      type: "",
+    },
+    children: [
+      {
+        key: "key2_1",
+        data: {
+          title: "rockets",
+          type: "",
+        },
+        children: [
+          {
+            key: "key3",
+            data: {
+              title: "_id",
+              type: "ObjectId",
+            },
+          },
+        ],
+      },
+    ],
+  },
+];
+export const TreeTableMenuList = () => (
+  <TreeTable value={menuList}>
+    <Column field="title" header="Databases" expander />
+    <Column field="type" header="" />
+  </TreeTable>
+);
+TreeTableMenuList.args = {
+  value: menuList,
+};

@@ -12,7 +12,7 @@ import { mongoDataConverter } from "./MongoDataConverter";
 import { ContextMenu } from "../contextmenu/ContextMenu";
 import { getValueToCopy } from "./TreeTableRow";
 
-import "../../../out/themes/lara-light-indigo/theme.css";
+import "../../../out/themes/bootstrap4-dark-purple/theme.css";
 import "../contextmenu/ContextMenu.css";
 import "./TreeTable.css";
 
