@@ -190,6 +190,8 @@ export interface TreeTableProps {
 
   onRowClick?(e: TreeTableEventParams): void;
 
+  onRowDoubleClick?(e: TreeTableEventParams, data: TreeNode): void;
+
   onSelectionChange?(e: TreeTableSelectionParams): void;
 
   onContextMenuSelectionChange?(e: TreeTableSelectionParams): void;

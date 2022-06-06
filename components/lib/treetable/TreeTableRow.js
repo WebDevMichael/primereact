@@ -29,6 +29,7 @@ export class TreeTableRow extends Component {
     onCollapse: null,
     onToggle: null,
     onRowClick: null,
+    onRowDoubleClick: null,
     onSelect: null,
     onUnselect: null,
     onSelectionChange: null,
@@ -56,6 +57,7 @@ export class TreeTableRow extends Component {
     onCollapse: PropTypes.func,
     onToggle: PropTypes.func,
     onRowClick: PropTypes.func,
+    onRowDoubleClick: PropTypes.func,
     onSelect: PropTypes.func,
     onUnselect: PropTypes.func,
     onSelectionChange: PropTypes.func,
@@ -71,6 +73,7 @@ export class TreeTableRow extends Component {
 
     this.onTogglerClick = this.onTogglerClick.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.onRowDoubleClick = this.onRowDoubleClick.bind(this);
     this.onTouchEnd = this.onTouchEnd.bind(this);
     this.propagateUp = this.propagateUp.bind(this);
     this.onCheckboxChange = this.onCheckboxChange.bind(this);
@@ -140,6 +143,12 @@ export class TreeTableRow extends Component {
     }
 
     this.nodeTouched = false;
+  }
+
+  onRowDoubleClick(event) {
+    if (this.props.onRowDoubleClick) {
+      this.props.onRowDoubleClick(event, this.props.node);
+    }
   }
 
   onTouchEnd() {
@@ -476,9 +485,10 @@ export class TreeTableRow extends Component {
             contextMenuSelectionKey={this.props.contextMenuSelectionKey}
             onContextMenuSelectionChange={this.props.onContextMenuSelectionChange}
             onContextMenu={(evt) => {
-                this.props.onContextMenu(evt)
+              this.props.onContextMenu(evt);
             }}
             onKeyDown={this.props.onKeyDown}
+            onRowDoubleClick={this.props.onRowDoubleClick}
             parent={this}
             parentRef={this.container}
           />
@@ -513,6 +523,7 @@ export class TreeTableRow extends Component {
           className={className}
           style={this.props.node.style}
           onClick={this.onClick}
+          onDoubleClick={(evt) => this.onRowDoubleClick(evt, this.props.node)}
           onTouchEnd={this.onTouchEnd}
           onContextMenu={(evt) => this.onRightClick(evt, this.props.node)}
           onKeyDown={(evt) => this.onKeyDown(evt, this.props.node)}

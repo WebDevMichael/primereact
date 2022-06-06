@@ -89,6 +89,7 @@ export class TreeTable extends Component {
     onSelect: null,
     onUnselect: null,
     onRowClick: null,
+    onRowDoubleClick: null,
     onSelectionChange: null,
     onContextMenuSelectionChange: null,
     onColumnResizeEnd: null,
@@ -169,6 +170,7 @@ export class TreeTable extends Component {
     onSelect: PropTypes.func,
     onUnselect: PropTypes.func,
     onRowClick: PropTypes.func,
+    onRowDoubleClick: PropTypes.func,
     onSelectionChange: PropTypes.func,
     onContextMenuSelectionChange: PropTypes.func,
     onColumnResizeEnd: PropTypes.func,
@@ -416,7 +418,11 @@ export class TreeTable extends Component {
     let currentFilters = this.getFilters();
     let newFilters = currentFilters ? { ...currentFilters } : {};
 
-    if (!this.isFilterBlank(event.value)) newFilters[event.field] = { value: event.value, matchMode: event.matchMode };
+    if (!this.isFilterBlank(event.value))
+      newFilters[event.field] = {
+        value: event.value,
+        matchMode: event.matchMode,
+      };
     else if (newFilters[event.field]) delete newFilters[event.field];
 
     if (this.props.onFilter) {
@@ -1046,6 +1052,7 @@ export class TreeTable extends Component {
         onSelectionChange={this.props.onSelectionChange}
         metaKeySelection={this.props.metaKeySelection}
         onRowClick={this.props.onRowClick}
+        onRowDoubleClick={this.props.onRowDoubleClick}
         onSelect={this.props.onSelect}
         onUnselect={this.props.onUnselect}
         propagateSelectionUp={this.props.propagateSelectionUp}

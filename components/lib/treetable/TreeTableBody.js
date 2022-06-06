@@ -27,6 +27,7 @@ export class TreeTableBody extends Component {
     onCollapse: null,
     onToggle: null,
     onRowClick: null,
+    onRowDoubleClick: null,
     onSelect: null,
     onUnselect: null,
     onSelectionChange: null,
@@ -57,6 +58,7 @@ export class TreeTableBody extends Component {
     onCollapse: PropTypes.func,
     onToggle: PropTypes.func,
     onRowClick: PropTypes.func,
+    onRowDoubleClick: PropTypes.func,
     onSelect: PropTypes.func,
     onUnselect: PropTypes.func,
     onSelectionChange: PropTypes.func,
@@ -69,6 +71,7 @@ export class TreeTableBody extends Component {
     super(props);
 
     this.onRowClick = this.onRowClick.bind(this);
+    this.onRowDoubleClick = this.onRowDoubleClick.bind(this);
   }
 
   createRow(node, index) {
@@ -89,6 +92,7 @@ export class TreeTableBody extends Component {
         onSelectionChange={this.props.onSelectionChange}
         metaKeySelection={this.props.metaKeySelection}
         onRowClick={this.onRowClick}
+        onRowDoubleClick={this.onRowDoubleClick}
         onSelect={this.props.onSelect}
         onUnselect={this.props.onUnselect}
         propagateSelectionUp={this.props.propagateSelectionUp}
@@ -120,6 +124,12 @@ export class TreeTableBody extends Component {
 
   isExpandedKey(key) {
     return this.props.expandedKeys && !!this.props.expandedKeys[key];
+  }
+
+  onRowDoubleClick(event, node) {
+    if (this.props.onRowDoubleClick) {
+      this.props.onRowDoubleClick(event,node);
+    }
   }
 
   onRowClick(event, node) {

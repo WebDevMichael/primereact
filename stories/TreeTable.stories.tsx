@@ -80,8 +80,13 @@ const menuList: TreeNode[] = [
     ],
   },
 ];
+const testOnRowDoubleClick = (e, node) => {
+    console.log('====== e', e);
+    console.log('====== node', node);
+}
+
 export const TreeTableMenuList = () => (
-  <TreeTable value={menuList}>
+  <TreeTable value={menuList} onRowDoubleClick={testOnRowDoubleClick}>
     <Column field="title" header="Databases" expander />
     <Column field="type" header="" />
   </TreeTable>
