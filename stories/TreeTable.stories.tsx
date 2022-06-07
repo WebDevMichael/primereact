@@ -50,6 +50,7 @@ JSONData.args = {
   value: nodes,
 };
 
+const MyTestTitle = () => (<div>Michael <a onClick={() => console.log('test interaction')}>click me</a></div>);
 /**
  * Menu list
  */
@@ -57,7 +58,7 @@ const menuList: TreeNode[] = [
   {
     key: "key1",
     data: {
-      title: "michael",
+        title: <MyTestTitle />,
       type: "",
     },
     children: [
