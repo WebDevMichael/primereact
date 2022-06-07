@@ -191,9 +191,13 @@ export class TreeTableBodyCell extends Component {
         onClick={this.onClick}
         onKeyDown={this.onKeyDown}
       >
-        {this.props.children}
-        {editorKeyHelper}
-        {content}
+        <div style={{display: "flex", flexDirection: 'row'}}>
+          <span style={{flexGrow: 0}}>
+            {this.props.children}
+            {editorKeyHelper}
+          </span>
+          <span style={{flexGrow: 1}}>{content}</span>
+        </div>
       </td>
     );
   }

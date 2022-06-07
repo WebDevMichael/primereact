@@ -50,7 +50,14 @@ JSONData.args = {
   value: nodes,
 };
 
-const MyTestTitle = () => (<div>Michael <a onClick={() => console.log('test interaction')}>click me</a></div>);
+const MyTestTitle = () => (
+  <div>
+    Michael{" "}
+    <a className={"pi pi-pencil"} onClick={() => console.log("test interaction")}>
+      click me
+    </a>
+  </div>
+);
 /**
  * Menu list
  */
@@ -58,7 +65,7 @@ const menuList: TreeNode[] = [
   {
     key: "key1",
     data: {
-        title: <MyTestTitle />,
+      title: <MyTestTitle />,
       type: "",
     },
     children: [
@@ -82,9 +89,9 @@ const menuList: TreeNode[] = [
   },
 ];
 const testOnRowDoubleClick = (e, node) => {
-    console.log('====== e', e);
-    console.log('====== node', node);
-}
+  console.log("====== e", e);
+  console.log("====== node", node);
+};
 
 export const TreeTableMenuList = () => (
   <TreeTable value={menuList} onRowDoubleClick={testOnRowDoubleClick}>
