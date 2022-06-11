@@ -4,10 +4,12 @@ import "primeicons/primeicons.css";
 
 import { AceEditorComponent } from "./lib/aceeditor/AceEditor";
 import { TreeTable } from "./lib/treetable/TreeTable";
+import { Tree } from "./lib/tree/Tree";
 import { Column } from "./lib/column/Column";
 
 export {
     AceEditorComponent,
     Column,
-    TreeTable
+    TreeTable,
+    Tree
 }
