@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 import AceEditor from "react-ace";
 import { QueryAutoCompleter } from "mongodb-ace-autocompleter";

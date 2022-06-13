@@ -8,16 +8,12 @@ export default {
   argTypes: {},
 };
 
-const Template = (args) => {
-  return (
-      <AceEditorComponent />
-  );
+const Template = () => {
+  return <AceEditorComponent />;
 };
 
 /**
  * Basic
  */
 export const Basic = Template.bind({});
-Basic.args = {
-
-};
+Basic.args = {};
