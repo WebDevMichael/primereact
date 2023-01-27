@@ -1,6 +1,6 @@
 {
-    "name": "primereact",
-    "version": "1.0.0",
+    "name": "@frontlinetech/table",
+    "version": "1.0.1",
     "private": false,
     "source": "components/index.tsx",
     "main": "dist/index.js",
@@ -10,6 +10,7 @@
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"
     },
+    "files": ["dist/*", "dist/**/*"],
     "dependencies": {
         "@babel/core": "^7.17.5",
         "@babel/plugin-proposal-class-properties": "^7.16.7",
@@ -25,7 +26,6 @@
         "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
         "bson": "^4.6.1",
         "chart.js": "3.3.2",
-        "codemirror": "^5.65.3",
         "debug": "^2.6.3",
         "file-saver": "^2.0.5",
         "final-form": "^4.20.2",
@@ -53,7 +53,6 @@
         "quill": "1.3.7",
         "react": "^17.0.2",
         "react-ace": "^10.1.0",
-        "react-codemirror2": "^7.2.1",
         "react-dom": "^17.0.2",
         "react-final-form": "^6.5.3",
         "react-hook-form": "^7.8.4",
@@ -74,8 +73,6 @@
         "@storybook/addon-links": "^6.4.22",
         "@storybook/react": "^6.4.22",
         "@storybook/testing-library": "^0.0.9",
-        "@types/codemirror": "^5.60.5",
-        "@types/react-codemirror": "^1.0.7",
         "babel-loader": "^8.2.4",
         "eslint": "7.32.0",
         "eslint-config-next": "12.0.4",
