@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { MenuItem } from '../menuitem';
-import { CSSTransitionProps } from '../csstransition';
+import type { CSSTransitionProps } from '../csstransition/CSSTransition';
 
 type ContextMenuAppendToType = 'self' | HTMLElement | undefined | null;
 

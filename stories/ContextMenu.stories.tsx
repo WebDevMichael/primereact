@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 
 import "../components/themes/nova/theme.css";
-import "../styles/primereact.css";
+import "../components/styles/primereact.css";
 import "primeicons/primeicons.css";
 
 import "../components/lib/contextmenu/ContextMenu.css";
-import { ContextMenu } from "../components/lib/contextmenu/ContextMenu";
+import { ContextMenu, ContextMenuProps } from "../components/lib/contextmenu/ContextMenu";
 
 export default {
   title: "PrimeReact/ContextMenu",
@@ -14,16 +14,13 @@ export default {
   argTypes: {},
 };
 
-const Template = (args) => {
+const Template = (args: ContextMenuProps) => {
   const menuRef = useRef(null);
   return (
     <>
       <ContextMenu {...args} ref={menuRef} />
-      <p
-          style={{border: '1px solid', padding: '10px'}}
-        onContextMenu={(e) => menuRef.current.show(e)}
-      >
-          Right click me
+      <p style={{ border: "1px solid", padding: "10px" }} onContextMenu={(e) => menuRef.current.show(e)}>
+        Right click me
       </p>
     </>
   );

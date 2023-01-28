@@ -1,5 +1,5 @@
 import "./themes/nova/theme.css";
-import "../styles/primereact.css";
+import "./styles/primereact.css";
 import "primeicons/primeicons.css";
 
 import { AceEditorComponent } from "./lib/aceeditor/AceEditor";

@@ -1,4 +1,4 @@
-import TreeNode from "../treenode";
+import type TreeNode from "../treenode/TreeNode";
 import { isArray, isBoolean, isDate, isNull, isNumber, isObject, isString } from "lodash";
 import { EJSON } from "bson";
 

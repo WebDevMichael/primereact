@@ -1,13 +1,13 @@
-import React, { useRef } from "react";
+import React from "react";
 
 import "../components/themes/nova/theme.css";
-import "../styles/primereact.css";
+import "../components/styles/primereact.css";
 import "primeicons/primeicons.css";
 
 import "../components/lib/treetable/TreeTable.css";
-import { TreeTable } from "../components/lib/treetable/TreeTable";
-import TreeNode from "../components/lib/treenode/TreeNode";
-import { Column } from "../components/lib/column/Column";
+import { Column, TreeTable } from "../components";
+import type { TreeTableEventParams, TreeTableProps } from "../components/lib/treetable/TreeTable";
+import type TreeNode from "../components/lib/treenode/TreeNode";
 import dbDataRockets1 from "./dbdata-rockets-1.json";
 import dbDataRaw from "./dbdata-raw.js";
 import { EJSON } from "bson";
@@ -21,8 +21,7 @@ export default {
   argTypes: {},
 };
 
-const Template = (args) => {
-  const cm = useRef(null);
+const Template = (args: Partial<TreeTableProps>) => {
   return (
     <>
       <TreeTable mongoDbData={args.mongoDbData} value={args.value} onKeyDown={args.onKeyDown}>
@@ -88,7 +87,7 @@ const menuList: TreeNode[] = [
     ],
   },
 ];
-const testOnRowDoubleClick = (e, node) => {
+const testOnRowDoubleClick = (e: TreeTableEventParams, node: TreeNode) => {
   console.log("====== e", e);
   console.log("====== node", node);
 };
