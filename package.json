@@ -1,10 +1,11 @@
 {
   "name": "@frontlinetech/table",
-  "version": "0.0.0-development",
+  "version": "1.0.2",
   "private": false,
   "source": "components/index.tsx",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": ["dist/**"],
   "scripts": {
     "build": "parcel build",
     "storybook": "start-storybook -p 6006",
