@@ -6,7 +6,6 @@
         "module": "esnext",
         "target": "es2017",
         "jsx": "react",
-        "moduleResolution": "node",
         "rootDir": "components",
         "lib": [
             "es6",
@@ -25,7 +24,8 @@
         "noUnusedLocals": true,
         "skipLibCheck": true,
         "allowSyntheticDefaultImports": true,
-        "removeComments": true
+        "removeComments": true,
+        "isolatedModules": true
     },
     "exclude": [
         "node_modules",

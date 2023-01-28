@@ -1,4 +1,4 @@
-import "../public/themes/nova/theme.css";
+import "./themes/nova/theme.css";
 import "../styles/primereact.css";
 import "primeicons/primeicons.css";
 

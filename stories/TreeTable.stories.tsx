@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-import "../public/themes/nova/theme.css";
+import "../components/themes/nova/theme.css";
 import "../styles/primereact.css";
 import "primeicons/primeicons.css";
 
